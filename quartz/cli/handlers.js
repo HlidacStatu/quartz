@@ -254,14 +254,19 @@ export async function handleBuild(argv) {
     sourcemap: true,
     sourcesContent: false,
     plugins: [
+      // sourceMap: false overrides the esbuild-wide `sourcemap: true` above for SASS only.
+      // Inline .scss is injected verbatim into every rendered page (see ofm.ts), so the
+      // base64 source map would ship ~4.5 kB of build metadata with each of them.
       sassPlugin({
         type: "css-text",
         cssImports: true,
+        sourceMap: false,
       }),
       sassPlugin({
         filter: /\.inline\.scss$/,
         type: "css",
         cssImports: true,
+        sourceMap: false,
       }),
       {
         name: "inline-script-loader",

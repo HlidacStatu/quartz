@@ -26,6 +26,15 @@ export function formatDate(d: Date, locale: ValidLocale = "en-US"): string {
   })
 }
 
+// Day-granular ISO date in the local timezone, so it matches the label rendered by
+// formatDate. A full ISO timestamp would make every page byte-different whenever the
+// underlying git commit date or file mtime moves by a second, which forces a full
+// re-upload on deploy even though nothing the reader sees has changed.
+function formatDateAttribute(d: Date): string {
+  const pad = (n: number) => String(n).padStart(2, "0")
+  return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`
+}
+
 export function Date({ date, locale }: Props) {
-  return <time datetime={date.toISOString()}>{formatDate(date, locale)}</time>
+  return <time datetime={formatDateAttribute(date)}>{formatDate(date, locale)}</time>
 }
