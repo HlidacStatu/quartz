@@ -27,7 +27,7 @@ const HlidacStatuNavbar = (
 <header class="hs-navbar">
         <div class="nav-inner">
             <a href="/" class="logo">
-                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="46px" height="46px" viewBox="0 0 46 46" version="1.1">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" width="46px" height="46px" viewBox="0 0 46 46" version="1.1">
                     <g id="Page-2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                         <g id="06-DOBRA" transform="translate(-31.000000, -18.000000)">
                             <g id="Group" transform="translate(31.000000, 18.000000)">
